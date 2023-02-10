@@ -6,4 +6,7 @@ def extract(account):
 def deposit(account, value):
     account["balance"] += value
 def cash(account, value):
-    account["balance"] -= value
+    if account["balance"] <= 0:
+        account["balance"] = account["limit"] - value
+    else:
+        account["balance"] -= value
