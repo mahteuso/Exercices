@@ -7,6 +7,7 @@ def deposit(account, value):
     account["balance"] += value
 def cash(account, value):
     if account["balance"] <= 0:
-        account["balance"] = account["limit"] - value
+        account["limit"] = account["limit"] - value
+        account["balance"] = account["limit"]
     else:
         account["balance"] -= value
