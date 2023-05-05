@@ -37,15 +37,20 @@ pal = """
 O endereçamento aberto não introduz nenhuma estrutura de dados nova. Se ocorrer uma colisão, procuramos a disponibilidade no próximo ponto gerado por um algoritmo. O endereçamento aberto é geralmente usado onde o espaço de armazenamento é restrito, ou seja, em processadores embarcados. O endereçamento aberto não é necessariamente mais rápido do que o encadeamento separado.
 """
 
-# pal = list(pal.split())
+pal = list(pal.split())
 
 lista = {}
-for palavra in pal.split():
-    for letra in palavra:
-        lista[letra] = lista.get(letra, 0) + 1
+def chain(pal):
+    for palavra in pal:
+        yield from palavra
+    #for letra in palavra:
+        #lista[letra] = lista.get(letra, 0) + 1
 
 for chave, valor in lista.items():
     print(chave, ':', valor)
 
-print(Counter(pal.split()))
 
+
+print('função nova')
+print(pal)
+print(list(chain(pal)))
